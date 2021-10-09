@@ -1,0 +1,176 @@
+common:
+  exampleValue: common-chart
+  global:
+    cattle:
+      clusterId: c-62h97
+      clusterName: victoria
+      rkePathPrefix: ''
+      rkeWindowsPathPrefix: ''
+      systemDefaultRegistry: ''
+      url: https://10.4.111.115
+    imagePullSecrets: null
+    imageRegistry: ''
+    systemDefaultRegistry: ''
+commonAnnotations: {}
+commonLabels: {}
+configInline:
+  address-pools:
+    - addresses:
+        - 10.4.111.20-10.4.111.40
+      name: monpool
+      protocol: layer2
+controller:
+  affinity: {}
+  containerPort:
+    metrics: 7472
+  hostAliases: null
+  image:
+    pullPolicy: IfNotPresent
+    pullSecrets: null
+    registry: docker.io
+    repository: bitnami/metallb-controller
+    tag: 0.10.2-debian-10-r94
+  livenessProbe:
+    enabled: true
+    failureThreshold: 3
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 1
+  nodeAffinityPreset:
+    key: ''
+    type: ''
+    values: null
+  nodeSelector: {}
+  podAffinityPreset: ''
+  podAnnotations: {}
+  podAntiAffinityPreset: soft
+  podLabels: {}
+  priorityClassName: ''
+  prometheus:
+    serviceMonitor:
+      enabled: false
+      interval: ''
+      jobLabel: app.kubernetes.io/name
+      metricRelabelings: null
+      relabelings: null
+  psp:
+    create: true
+  rbac:
+    create: true
+  readinessProbe:
+    enabled: true
+    failureThreshold: 3
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 1
+  resources:
+    limits: {}
+    requests: {}
+  revisionHistoryLimit: 3
+  securityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      drop:
+        - ALL
+    enabled: true
+    fsGroup: 1001
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 1001
+  serviceAccount:
+    create: true
+    name: ''
+  terminationGracePeriodSeconds: 0
+  tolerations: null
+existingConfigMap: ''
+fullnameOverride: ''
+global:
+  imagePullSecrets: null
+  imageRegistry: ''
+  cattle:
+    clusterId: c-62h97
+    clusterName: victoria
+    rkePathPrefix: ''
+    rkeWindowsPathPrefix: ''
+    systemDefaultRegistry: ''
+    url: https://10.4.111.115
+  systemDefaultRegistry: ''
+nameOverride: ''
+networkPolicy:
+  enabled: false
+  ingressNSMatchLabels: {}
+  ingressNSPodMatchLabels: {}
+prometheusRule:
+  enabled: false
+psp:
+  create: false
+rbac:
+  create: true
+speaker:
+  affinity: {}
+  daemonset:
+    hostPorts:
+      metrics: 7472
+    terminationGracePeriodSeconds: 2
+  extraEnvVars: null
+  hostAliases: null
+  image:
+    pullPolicy: IfNotPresent
+    pullSecrets: null
+    registry: docker.io
+    repository: bitnami/metallb-speaker
+    tag: 0.10.2-debian-10-r98
+  initContainers: null
+  livenessProbe:
+    enabled: true
+    failureThreshold: 3
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 1
+  nodeSelector: {}
+  podAnnotations: {}
+  podLabels: {}
+  priorityClassName: ''
+  prometheus:
+    serviceMonitor:
+      enabled: false
+      interval: ''
+      jobLabel: app.kubernetes.io/name
+      metricRelabelings: null
+      relabelings: null
+  psp:
+    create: true
+  rbac:
+    create: true
+  readinessProbe:
+    enabled: true
+    failureThreshold: 3
+    initialDelaySeconds: 10
+    periodSeconds: 10
+    successThreshold: 1
+    timeoutSeconds: 1
+  resources:
+    limits: {}
+    requests: {}
+  secretKey: ''
+  secretName: ''
+  secretValue: ''
+  securityContext:
+    allowPrivilegeEscalation: false
+    capabilities:
+      add:
+        - NET_ADMIN
+        - NET_RAW
+        - SYS_ADMIN
+      drop:
+        - ALL
+    enabled: true
+    readOnlyRootFilesystem: true
+    runAsUser: 0
+  serviceAccount:
+    create: true
+    name: ''
+  tolerations: null
