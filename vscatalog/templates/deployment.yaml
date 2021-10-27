@@ -30,12 +30,18 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           env:
-            - name: RabbitMQAuth
-              value: {{ .Values.catalog.RabbitMQAuth | toJson | quote }}
-            - name: RabbitMQUrl
+            - name: RABBITMQ_USER
+              value: {{ .Values.catalog.RabbitMQUser }}
+            - name: RABBITMQ_PASSWORD
+              value: {{ .Values.catalog.RabbitMQPassword }}
+            - name: RABBITMQ_IP
               value: {{ .Values.catalog.RabbitMQUrl }}
-            - name: DatabaseConnectionString
+            - name: DB_CONNECTION_STRING
               value: {{ .Values.catalog.DatabaseConnectionString }}
+            - name: RABBITMQ_QUEUE
+              value: {{ .Values.catalog.RabbitMQqueue }}
+            - name: ELASTICSEARCH_URL
+              value: {{ .Values.catalog.elasticsearchUrl }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"

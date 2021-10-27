@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: ariazarifian/catalog
+  repository: valentinvirot/di3p1g2
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: "126"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -41,10 +41,11 @@ service:
   port: 443
 catalog:
   port: 80
-  RabbitMQAuth:
-    login: user
-    password: GW93bgP1Na
+  RabbitMQUser: user
+  RabbitMQPassword: GW93bgP1Na
   RabbitMQUrl: 10.4.111.20
+  RabbitMQqueue: basket
+  elasticsearchUrl: http://10.4.111.27:9200
   DatabaseConnectionString: Data Source=10.4.111.24;Initial Catalog=victoriasecret;User ID=sa;Password=Admin123
 
 
