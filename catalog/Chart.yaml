@@ -1,4 +1,4 @@
-apiVersion: v2
+apiVersion: v1
 name: vscatalogaria
 description: Template Helm pour le déploiement du catalog équipe Aria.
 
