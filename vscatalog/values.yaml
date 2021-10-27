@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: ariazarifian/catalog
+  repository: seraphus/kuber
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: "Catalog-74"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -43,8 +43,8 @@ catalog:
   port: 80
   RabbitMQAuth:
     login: user
-    password: lXSGKyV9Kf
-  RabbitMQUrl: 10.4.111.23
+    password: GW93bgP1Na
+  RabbitMQUrl: 10.4.111.20
   DatabaseConnectionString: Data Source=10.4.111.24;Initial Catalog=victoriasecret;User ID=sa;Password=Admin123
 
 
