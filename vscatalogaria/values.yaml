@@ -5,10 +5,9 @@
 replicaCount: 1
 
 image:
-  repository: nginx
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: ""
+  repository: ariazarifian/catalog
+  pullPolicy: Always	
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -37,8 +36,15 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: ClusterIP
+  type: LoadBalancer
+  port: 443
+catalog:
   port: 80
+  RabbitMQAuth:
+    login: user
+    password: GW93bgP1Na
+  RabbitMQUrl: 10.4.111.20
+  DatabaseConnectionString: Data Source=10.4.111.24;Initial Catalog=victoriasecret;User ID=sa;Password=Admin123
 
 ingress:
   enabled: false
