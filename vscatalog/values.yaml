@@ -38,7 +38,7 @@ securityContext: {}
 
 service:
   type: LoadBalancer
-  port: 443
+  port: 80
 catalog:
   port: 80
   RabbitMQUser: user
