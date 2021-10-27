@@ -46,7 +46,7 @@ catalog:
   RabbitMQUrl: 10.4.111.20
   RabbitMQqueue: basket
   elasticsearchUrl: http://10.4.111.27:9200
-  DatabaseConnectionString: Data Source=10.4.111.24;Initial Catalog=victoriasecret;User ID=sa;Password=Admin123
+  DatabaseConnectionString: Data Source=10.4.111.24;Initial Catalog=vs-g2;User ID=sa;Password=Admin123
 
 
 
