@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: valentinvirot/di3p1g2-catalog
+  repository: seraphus/kuber
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: "Catalog-74"
 
 imagePullSecrets: []
 nameOverride: ""
