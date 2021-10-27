@@ -38,7 +38,7 @@ securityContext: {}
 service:
   type: LoadBalancer
   port: 443
-catalog:
+vscatalogaria:
   port: 80
   RabbitMQAuth:
     login: user

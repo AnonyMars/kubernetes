@@ -31,11 +31,11 @@ spec:
         - name: {{ .Chart.Name }}
           env:
             - name: RabbitMQAuth
-              value: {{ .Values.catalog.RabbitMQAuth | toJson | quote }}
+              value: {{ .Values.vscatalogaria.RabbitMQAuth | toJson | quote }}
             - name: RabbitMQUrl
-              value: {{ .Values.catalog.RabbitMQUrl }}
+              value: {{ .Values.vscatalogaria.RabbitMQUrl }}
             - name: DatabaseConnectionString
-              value: {{ .Values.catalog.DatabaseConnectionString }}
+              value: {{ .Values.vscatalogaria.DatabaseConnectionString }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
