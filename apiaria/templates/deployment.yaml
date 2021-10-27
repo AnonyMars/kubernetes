@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "vscatalog.fullname" . }}
+  name: {{ include "apiaria.fullname" . }}
   labels:
-    {{- include "vscatalog.labels" . | nindent 4 }}
+    {{- include "apiaria.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "vscatalog.selectorLabels" . | nindent 6 }}
+      {{- include "apiaria.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,32 +18,33 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "vscatalog.selectorLabels" . | nindent 8 }}
+        {{- include "apiaria.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "vscatalog.serviceAccountName" . }}
+      serviceAccountName: {{ include "apiaria.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
-          env:
-            - name: RabbitMQAuth
-              value: {{ .Values.catalog.RabbitMQAuth | toJson | quote }}
-            - name: RabbitMQUrl
-              value: {{ .Values.catalog.RabbitMQUrl }}
-            - name: DatabaseConnectionString
-              value: {{ .Values.catalog.DatabaseConnectionString }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: {{ .Values.catalog.port }}
+              containerPort: 80
               protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}

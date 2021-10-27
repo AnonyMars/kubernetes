@@ -1,13 +1,14 @@
-# Default values for vscatalogaria.
+# Default values for basketaria.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
 replicaCount: 1
 
 image:
-  repository: ariazarifian/catalog
-  pullPolicy: Always	
-  tag: "latest"
+  repository: valentinvirot/di3p1g2-baskets
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "128"
 
 imagePullSecrets: []
 nameOverride: ""
@@ -36,16 +37,19 @@ securityContext: {}
   # runAsUser: 1000
 
 service:
-  type: LoadBalancer
-  port: 443
-vscatalogaria:
+  type: ClusterIP
   port: 80
-  RabbitMQAuth:
-    login: user
-    password: GW93bgP1Na
+basket:
+  port: 80
+  RabbiMQUser: user
+  RabbitMQPassword: GW93bgP1Na
   RabbitMQUrl: 10.4.111.20
-  DatabaseConnectionString: Data Source=10.4.111.24;Initial Catalog=victoriasecret;User ID=sa;Password=Admin123
-
+  BaseKey: user
+  RedisIP: 10.4.111.29
+  RedisPort: 6379
+  RabbitMQPort: 5672
+  RabbitMQqueue: basket
+  
 ingress:
   enabled: false
   className: ""

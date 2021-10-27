@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "vscatalogaria.fullname" . }}
+  name: {{ include "basketaria.fullname" . }}
   labels:
-    {{- include "vscatalogaria.labels" . | nindent 4 }}
+    {{- include "basketaria.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "vscatalogaria.selectorLabels" . | nindent 6 }}
+      {{- include "basketaria.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,24 +18,34 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "vscatalogaria.selectorLabels" . | nindent 8 }}
+        {{- include "basketaria.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "vscatalogaria.serviceAccountName" . }}
+      serviceAccountName: {{ include "basketaria.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
           env:
-            - name: RabbitMQAuth
-              value: {{ .Values.vscatalogaria.RabbitMQAuth | toJson | quote }}
-            - name: RabbitMQUrl
-              value: {{ .Values.vscatalogaria.RabbitMQUrl }}
-            - name: DatabaseConnectionString
-              value: {{ .Values.vscatalogaria.DatabaseConnectionString }}
+            - name: RABBITMQ_USER
+              value: {{ .Values.basket.RabbitMQUser }}
+            - name: RABBITMQ_PASSWORD
+              value: {{ .Values.basket.RabbitMQPassword }}
+            - name: RABBITMQ_IP
+              value: {{ .Values.basket.RabbitMQUrl }}
+            - name: RABBITMQ_PORT
+              value: {{ .Values.basket.RabbitMQPort }}
+            - name: RABBITMQ_QUEUE
+              value: {{ .Values.basket.RabbitMQqueue }}
+            - name: REDIS_PORT
+              value: {{ .Values.basket.RedisPort }}
+            - name: REDIS_IP
+              value: {{ .Values.basket.RedisIP }}
+            - name: BASE_KEY
+              value: {{ .Values.basket.BaseKey }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
