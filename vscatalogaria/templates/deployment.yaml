@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "vscatalog.fullname" . }}
+  name: {{ include "vscatalogaria.fullname" . }}
   labels:
-    {{- include "vscatalog.labels" . | nindent 4 }}
+    {{- include "vscatalogaria.labels" . | nindent 4 }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
     matchLabels:
-      {{- include "vscatalog.selectorLabels" . | nindent 6 }}
+      {{- include "vscatalogaria.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -18,13 +18,13 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "vscatalog.selectorLabels" . | nindent 8 }}
+        {{- include "vscatalogaria.selectorLabels" . | nindent 8 }}
     spec:
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      serviceAccountName: {{ include "vscatalog.serviceAccountName" . }}
+      serviceAccountName: {{ include "vscatalogaria.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
