@@ -38,7 +38,6 @@ spec:
               value: {{ .Values.basket.RabbitMQUrl }}
             - name: BASE_KEY
               value: {{ .Values.basket.BaseKey }}
-
             - name: RABBITMQ_PORT
               value: {{ .Values.basket.RabbitMQPort }}
             - name: RABBITMQ_QUEUE
