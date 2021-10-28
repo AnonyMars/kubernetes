@@ -40,8 +40,9 @@ spec:
               value: {{ .Values.basket.BaseKey }}
             - name: REDIS_IP
               value: {{ .Values.basket.RedisIP }}
-
-            - name: RABBITMQ_PORT
+            - name: TEST_REDIS
+              value: {{ .Values.basket.RedisPort }}
+            - name: TEST_RABBITMQ
               value: {{ .Values.basket.RabbitMQPort }}
             - name: RABBITMQ_QUEUE
               value: {{ .Values.basket.RabbitMQqueue }}
