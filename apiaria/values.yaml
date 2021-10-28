@@ -41,8 +41,8 @@ service:
   port: 80
 api:
   port: 80
-    AUDIENCE: account
-    AUTHORITY: http://10.4.111.28/auth/realms/vs-g2
+  AUDIENCE: account
+  AUTHORITY: http://10.4.111.28/auth/realms/vs-g2
 
 
 resources: {}
