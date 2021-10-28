@@ -41,8 +41,8 @@ service:
   port: 80
 api:
   port: 80
-  a: account
-  b: http://10.4.111.28/auth/realms/vs-g2
+  a: "account"
+  b: "http://10.4.111.28/auth/realms/vs-g2"
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
