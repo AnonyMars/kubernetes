@@ -36,6 +36,16 @@ spec:
               value: {{ .Values.basket.RabbitMQPassword }}
             - name: RABBITMQ_IP
               value: {{ .Values.basket.RabbitMQUrl }}
+            - name: BASE_KEY
+              value: {{ .Values.basket.BaseKey }}
+            - name: REDIS_IP
+              value: {{ .Values.basket.RedisIP }}
+            - name: REDIS_PORT
+              value: {{ .Values.basket.RedisPort }}
+            - name: RABBITMQ_PORT
+              value: {{ .Values.basket.RabbitMQPort }}
+            - name: RABBITMQ_QUEUE
+              value: {{ .Values.basket.RabbitMQqueue }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
