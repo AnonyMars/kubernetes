@@ -29,23 +29,7 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
-          env:
-            - name: RABBITMQ_USER
-              value: {{ .Values.basket.RabbitMQUser }}
-            - name: RABBITMQ_PASSWORD
-              value: {{ .Values.basket.RabbitMQPassword }}
-            - name: RABBITMQ_IP
-              value: {{ .Values.basket.RabbitMQUrl }}
-            - name: RABBITMQ_PORT
-              value: {{ .Values.basket.RabbitMQPort }}
-            - name: RABBITMQ_QUEUE
-              value: {{ .Values.basket.RabbitMQqueue }}
-            - name: REDIS_PORT
-              value: {{ .Values.basket.RedisPort }}
-            - name: REDIS_IP
-              value: {{ .Values.basket.RedisIP }}
-            - name: BASE_KEY
-              value: {{ .Values.basket.BaseKey }}
+
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
