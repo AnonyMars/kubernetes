@@ -29,7 +29,7 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
-	env:
+        env:
             - name: AUDIENCE
               value: {{ .Values.api.AUDIENCE }}
             - name: AUTHORITY
