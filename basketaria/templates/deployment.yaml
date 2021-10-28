@@ -38,7 +38,10 @@ spec:
               value: {{ .Values.basket.RabbitMQUrl }}
             - name: BASE_KEY
               value: {{ .Values.basket.BaseKey }}
-
+            - name: REDIS_IP
+              value: {{ .Values.basket.RedisIP }}
+            - name: REDIS_PORT
+              value: {{ .Values.basket.RedisPort }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
