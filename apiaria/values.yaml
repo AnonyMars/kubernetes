@@ -8,7 +8,7 @@ image:
   repository: valentinvirot/di3p1g2-gateway
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "134"
+  tag: "latest"
 
 imagePullSecrets: []
 nameOverride: ""
