@@ -39,7 +39,7 @@ securityContext: {}
 service:
   type: LoadBalancer
   port: 80
-api:
+apia:
   port: 80
   a: account
   b: http://10.4.111.28/auth/realms/vs-g2
