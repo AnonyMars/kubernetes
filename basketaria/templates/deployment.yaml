@@ -39,6 +39,8 @@ spec:
             - name: BASE_KEY
               value: {{ .Values.basket.BaseKey }}
 
+            - name: RABBITMQ_QUEUE
+              value: {{ .Values.basket.RabbitMQqueue }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
