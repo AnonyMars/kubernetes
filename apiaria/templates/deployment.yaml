@@ -29,11 +29,7 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
-        env:
-            - name: AUDIENCE
-              value: {{ .Values.api.AUDIENCE }}
-            - name: AUTHORITY
-              value: {{ .Values.api.AUTHORITY }}
+
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
