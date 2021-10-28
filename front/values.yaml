@@ -39,8 +39,6 @@ securityContext: {}
 service:
   type: LoadBalancer
   port: 80
-front:
-  port: 80  
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
