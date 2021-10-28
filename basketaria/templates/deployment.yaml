@@ -41,6 +41,8 @@ spec:
             - name: REDIS_IP
               value: {{ .Values.basket.RedisIP }}
 
+            - name: RABBITMQ_PORT
+              value: {{ .Values.basket.RabbitMQPort }}
             - name: RABBITMQ_QUEUE
               value: {{ .Values.basket.RabbitMQqueue }}
           securityContext:
