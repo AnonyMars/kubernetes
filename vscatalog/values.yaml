@@ -42,11 +42,11 @@ service:
 catalog:
   port: 80
   RabbitMQUser: user
-  RabbitMQPassword: GW93bgP1Na
-  RabbitMQUrl: 10.4.111.20
+  RabbitMQPassword: RPT6JQX3tT
+  RabbitMQUrl: 10.4.111.35
   RabbitMQqueue: basket
-  elasticsearchUrl: http://10.4.111.27:9200
-  DatabaseConnectionString: Data Source=10.4.111.24;Initial Catalog=vs-g2;User ID=sa;Password=Admin123
+  elasticsearchUrl: http://10.4.111.24:9200
+  DatabaseConnectionString: Data Source=10.4.111.23;Initial Catalog=vs-g2;User ID=sa;Password=Admin123
 
 
 
