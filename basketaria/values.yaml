@@ -45,7 +45,7 @@ basket:
   RabbitMQPassword: RPT6JQX3tT
   RabbitMQUrl: 10.4.111.35
   BaseKey: user
-  RedisIP: 10.4.111.28
+  RedisIP: 10.4.111.27
   RedisPort: 6379
   RabbitMQPort: 5672
   RabbitMQqueue: basket
