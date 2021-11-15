@@ -42,10 +42,10 @@ service:
 basket:
   port: 80
   RabbiMQUser: user
-  RabbitMQPassword: GW93bgP1Na
-  RabbitMQUrl: 10.4.111.20
+  RabbitMQPassword: RPT6JQX3tT
+  RabbitMQUrl: 10.4.111.35
   BaseKey: user
-  RedisIP: 10.4.111.29
+  RedisIP: 10.4.111.26
   RedisPort: 6379
   RabbitMQPort: 5672
   RabbitMQqueue: basket
