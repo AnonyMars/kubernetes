@@ -8,21 +8,6 @@ auth:
   usePasswordFiles: false
 clusterDomain: cluster.local
 common:
-  exampleValue: common-chart
-  global:
-    cattle:
-      clusterId: c-62h97
-      clusterName: victoria
-      rkePathPrefix: ''
-      rkeWindowsPathPrefix: ''
-      systemDefaultRegistry: ''
-      url: https://10.4.111.115
-    imagePullSecrets: null
-    imageRegistry: ''
-    redis:
-      password: ''
-    storageClass: ''
-    systemDefaultRegistry: ''
 commonAnnotations: {}
 commonConfiguration: |-
   # Enable AOF https://redis.io/topics/persistence#append-only-file
@@ -39,20 +24,6 @@ diagnosticMode:
 existingConfigmap: ''
 extraDeploy: null
 fullnameOverride: ''
-global:
-  imagePullSecrets: null
-  imageRegistry: ''
-  redis:
-    password: ''
-  storageClass: ''
-  cattle:
-    clusterId: c-62h97
-    clusterName: victoria
-    rkePathPrefix: ''
-    rkeWindowsPathPrefix: ''
-    systemDefaultRegistry: ''
-    url: https://10.4.111.115
-  systemDefaultRegistry: ''
 image:
   debug: false
   pullPolicy: IfNotPresent
@@ -177,7 +148,7 @@ metrics:
     loadBalancerIP: ''
     loadBalancerSourceRanges: null
     port: 9121
-    type: ClusterIP
+    type: LoadBalancer
   serviceMonitor:
     additionalLabels: {}
     enabled: false
@@ -285,7 +256,7 @@ replica:
     loadBalancerSourceRanges: null
     nodePort: ''
     port: 6379
-    type: ClusterIP
+    type: LoadBalancer
   shareProcessNamespace: false
   sidecars: null
   spreadConstraints: {}
@@ -353,7 +324,7 @@ sentinel:
       sentinel: ''
     port: 6379
     sentinelPort: 26379
-    type: ClusterIP
+    type: LoadBalancer
   terminationGracePeriodSeconds: 30
 serviceAccount:
   annotations: {}
