@@ -39,6 +39,9 @@ securityContext: {}
 service:
   type: LoadBalancer
   port: 3000
+basket:
+  BASE_CATALOG_URL: http://10.4.111.38/api/v1
+  BASE_BASKET_URL: http://10.4.111.28/api/v1
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious

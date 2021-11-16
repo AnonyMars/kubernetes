@@ -29,6 +29,11 @@ spec:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
         - name: {{ .Chart.Name }}
+	  env:
+            - name: BASE_CATALOG_URL
+              value: {{ .Values.basket.BASE_CATALOG_URL }}
+            - name: BASE_BASKET_URL
+              value: {{ .Values.basket.BASE_BASKET_URL }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
