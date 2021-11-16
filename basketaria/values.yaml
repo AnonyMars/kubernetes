@@ -49,6 +49,7 @@ basket:
   RedisPort: 6379
   RabbitMQPort: 5672
   RabbitMQqueue: basket
+  RedisPWD: V7L22IJQue
   
 
 

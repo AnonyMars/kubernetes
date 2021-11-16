@@ -46,6 +46,8 @@ spec:
               value: {{ .Values.basket.RabbitMQPort }}
             - name: RABBITMQ_QUEUE
               value: {{ .Values.basket.RabbitMQqueue }}
+            - name: REDIS_PASSWORD
+              value: {{ .Values.basket.RedisPWD }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
