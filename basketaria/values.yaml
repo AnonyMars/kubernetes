@@ -41,7 +41,7 @@ service:
   port: 80
 basket:
   port: 80
-  RabbiMQUser: user
+  RabbitMQUser: user
   RabbitMQPassword: RPT6JQX3tT
   RabbitMQUrl: 10.4.111.35
   BaseKey: user
