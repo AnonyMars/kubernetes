@@ -40,7 +40,7 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
-              containerPort: {{ .Values.catalog.port }}
+              containerPort: {{ .Values.front.port }}
               protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
