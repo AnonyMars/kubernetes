@@ -36,6 +36,8 @@ spec:
               value: {{ .Values.catalog.RabbitMQPassword }}
             - name: RABBITMQ_IP
               value: {{ .Values.catalog.RabbitMQUrl }}
+            - name: RABBITMQ_PORT
+              value: {{ .Values.catalog.RabbitMQ_PORT }}
             - name: DB_CONNECTION_STRING
               value: {{ .Values.catalog.DatabaseConnectionString }}
             - name: RABBITMQ_QUEUE
