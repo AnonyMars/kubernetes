@@ -38,9 +38,9 @@ securityContext: {}
 
 service:
   type: LoadBalancer
-  port: 3000
-front:
   port: 80
+front:
+  port: 3000
   BASE_CATALOG_URL: http://10.4.111.38/api/v1
   BASE_BASKET_URL: http://10.4.111.28/api/v1
 
